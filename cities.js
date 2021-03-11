@@ -7,8 +7,7 @@ exports.addCities = function(board){
 	let BuenosAires, Kinshasa, Lagos, SaoPaulo, LosAngeles, Miami, MexicoCity, Johannesburg, Bogota, Lima, Santiago, Khartoum;
 
 	// Constructing Blue Cities
-
-	Atlanta = new City("Atlanta", "blue",4715000, "United States", true,[Chicago,Washington,Miami]);
+	Atlanta = new City("Atlanta", "blue",4715000, "United States", true);
 	Montreal = new City("Montréal", "blue", 3429000, "Canada", false,[Chicago,NewYork,Washington]);
 	StPetersburg = new City("St. Petersburg", "blue", 4879000, "Russia", false, [Essen,Istanbul,Moscow]);
 	Chicago = new City("Chicago", "blue", 9121000, "United States", false,[SanFrancisco,LosAngeles,MexicoCity,Atlanta,Montreal]);
@@ -20,7 +19,6 @@ exports.addCities = function(board){
 	Paris = new City("Paris", "blue", 10755000, "France", false,[London,Essen,Milan,Algiers,Madrid]);
 	Milan = new City("Milan", "blue", 5232000, "Italy", false,[Essen,Paris,Istanbul]);
 	Essen = new City("Essen", "blue", 575000, "Germany", false,[London,Paris,Milan,StPetersburg]);
-
 
 	// Constructing Black Cities
 
@@ -67,7 +65,64 @@ exports.addCities = function(board){
 	Santiago = new City("Santiago", "yellow", 6015000, "Chile", false,[Lima]);
 	Khartoum = new City("Khartoum", "yellow", 4887000, "Sudan", false,[Cairo,Johannesburg,Kinshasa,Lagos]);
 
-	// Constructing Blue City Cards
+	Atlanta.setAdjacentCities([Chicago,Washington,Miami]);
+	Montreal.setAdjacentCities([Chicago,NewYork,Washington]);
+	StPetersburg.setAdjacentCities([Essen,Istanbul,Moscow]);
+	Chicago.setAdjacentCities([SanFrancisco,LosAngeles,MexicoCity,Atlanta,Montreal]);
+	NewYork.setAdjacentCities([Montreal,Washington,London,Madrid]);
+	London.setAdjacentCities([NewYork,Madrid,Paris,Essen]);
+	SanFrancisco.setAdjacentCities([Tokyo, Manila, LosAngeles,Chicago]);
+	Washington.setAdjacentCities([Atlanta,Miami,NewYork,Montreal]);
+	Madrid.setAdjacentCities([NewYork,London,Algiers,SaoPaulo,Paris]);
+	Paris.setAdjacentCities([London,Essen,Milan,Algiers,Madrid]);
+	Milan.setAdjacentCities([Essen,Paris,Istanbul]);
+	Essen.setAdjacentCities([London,Paris,Milan,StPetersburg]);
+
+	// Constructing Black Cities
+
+	Karachi.setAdjacentCities([Tehran,Delhi,Mumbai,Riyadh,Baghdad]);
+	Moscow.setAdjacentCities([StPetersburg,Istanbul,Tehran]);
+	Istanbul.setAdjacentCities([StPetersburg,Moscow,Baghdad,Cairo,Milan,Algiers]);
+	Cairo.setAdjacentCities([Algiers,Istanbul,Baghdad,Riyadh,Khartoum]);
+	Baghdad.setAdjacentCities([Istanbul,Tehran,Karachi,Riyadh,Cairo]);
+	Kolkata.setAdjacentCities([Delhi,HongKong,Bangkok,Chennai]);
+	Chennai.setAdjacentCities([Mumbai,Delhi,Kolkata,Bangkok,Jakarta]);
+	Algiers.setAdjacentCities([Madrid,Paris,Istanbul,Cairo]);
+	Delhi.setAdjacentCities([Tehran,Karachi,Mumbai,Chennai,Kolkata]);
+	Tehran.setAdjacentCities([Moscow,Baghdad,Karachi,Delhi]);
+	Mumbai.setAdjacentCities([Karachi,Delhi,Chennai]);
+	Riyadh.setAdjacentCities([Cairo,Baghdad,Karachi]);
+
+	// Constructing Red Cities
+
+	Beijing.setAdjacentCities([Seoul,Shanghai]);
+	Sydney.setAdjacentCities([Jakarta,Manila,LosAngeles]);
+	Osaka.setAdjacentCities([Tokyo,Taipei]);
+	Seoul.setAdjacentCities([Beijing,Shanghai,Tokyo]);
+	HongKong.setAdjacentCities([Shanghai,Taipei,Manila,HoChiMinhCity,Bangkok,Kolkata]);
+	Jakarta.setAdjacentCities([Chennai,Bangkok,HoChiMinhCity,Sydney]);
+	Shanghai.setAdjacentCities([Beijing,Seoul,Tokyo,Taipei,HongKong]);
+	Bangkok.setAdjacentCities([Kolkata,HongKong,HoChiMinhCity,Jakarta,Chennai]);
+	Tokyo.setAdjacentCities([Seoul,SanFrancisco,Osaka,Shanghai]);
+	Taipei.setAdjacentCities([Shanghai,Osaka,Manila,HongKong]);
+	HoChiMinhCity.setAdjacentCities([Bangkok,HongKong,Manila,Jakarta]);
+	Manila.setAdjacentCities([Taipei,SanFrancisco,Sydney,HoChiMinhCity]);
+
+	// Constructing Yellow Cities
+
+	BuenosAires.setAdjacentCities([Bogota,SaoPaulo]);
+	Kinshasa.setAdjacentCities([Lagos,Khartoum,Johannesburg]);
+	Lagos.setAdjacentCities([SaoPaulo,Kinshasa,Khartoum]);
+	SaoPaulo.setAdjacentCities([Bogota,BuenosAires,Madrid,Lagos]);
+	LosAngeles.setAdjacentCities([SanFrancisco,Sydney,MexicoCity,Chicago]);
+	Miami.setAdjacentCities([Atlanta,Washington,Bogota,MexicoCity]);
+	MexicoCity.setAdjacentCities([LosAngeles,Chicago,Miami,Bogota,Lima]);
+	Johannesburg.setAdjacentCities([Kinshasa,Khartoum]);
+	Bogota.setAdjacentCities([MexicoCity,Miami,SaoPaulo,BuenosAires,Lima]);
+	Lima.setAdjacentCities([MexicoCity,Bogota,Santiago]);
+	Santiago.setAdjacentCities([Lima]);
+	Khartoum.setAdjacentCities([Cairo,Johannesburg,Kinshasa,Lagos]);
+
 
 	let AtlantaCityCard = new CityCard(Atlanta);
 	let MontrealCityCard = new CityCard(Montreal);
